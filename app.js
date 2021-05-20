@@ -21,32 +21,41 @@ function append(parent, el) {
 async function printBestMovie(bestMovie, description) {
     const div_best_movie = document.getElementById('best-imdb-score');
     const bestMovieElement = document.getElementById('best-movie');
+    const divContainerImg = document.getElementById('container-best-movie');
+    const divTitle = document.getElementById('title-best-movie')
+    const divDescription = document.getElementById('description-best-movie')
+    const divImageBestMovie = document.getElementById('image-best-movie')
 
-    let h1 = createNode('h1')
+    // let h1 = createNode('h1')
     // let a = createNode('a')
-    let div_title = createNode('div');
+    // let div_title = createNode('div');
     let img = createNode('img');
-    let divDescription = createNode('div');
-    let button = createNode('button');
+    // let divDescription = createNode('div');
+    // let button = createNode('button');
 
-    // a.id = "best-movie";
-    // a.setAttribute('id', 'best-movie')
-    // a.setAttribute('class', 'cell')
-    bestMovieElement.setAttribute('href', 'javascript:void(0);')
+    // bestMovieElement.setAttribute('href', 'javascript:void(0);')
     bestMovieElement.setAttribute('data-id', bestMovie.id)
+    // divContainerImg.setAttribute('data-id', bestMovie.id)
 
-    h1.innerHTML = "Meilleur film"
-    div_title.innerHTML = bestMovie.title
+    // h1.innerHTML = "Meilleur film"
+    // div_title.innerHTML = bestMovie.title
+    divTitle.innerHTML = bestMovie.title
     img.src = bestMovie.image_url;
-    // divDescription.innerHTML = description
+    console.log(img)
+    console.log(img.src)
+    divDescription.innerHTML = description
 
-    button.innerHTML = 'Play'
-    append(bestMovieElement, h1)
-    append(bestMovieElement, div_title);
-    append(bestMovieElement, img)
+    // button.innerHTML = 'Play'
+    // append(div_best_movie, h1)
+    console.log(divContainerImg)
+
+    // append(divContainerImg, div_title);
+    console.log(divContainerImg)
+    // console.log(img)
+    append(divImageBestMovie, img)
     // append(div_best_movie, a);
-    append(bestMovieElement, divDescription);
-    append(bestMovieElement, button);
+    // append(divContainerImg, divDescription);
+    // append(bestMovieElement, button);
 }
 
 async function printBestMoviesList(moviesList, container) {
@@ -75,6 +84,7 @@ async function printBestMoviesList(moviesList, container) {
         a.setAttribute('data-id', movie.id)
         div_title.innerHTML = movie.title
         img.src = movie.image_url;
+        img.setAttribute('class', 'img-carousel');
         divDescription.innerHTML = detailledInfos.description
 
         // append(a, div_title)
@@ -208,6 +218,22 @@ window.onload = function () {
         }
     }
     document.addEventListener("click", function (event) {
+        var path = event.path || (event.composedPath && event.composedPath());
+        console.log(path)
+        console.log(event.path)
+        console.log(event.composedPath)
+        console.log(event.composedPath())
+        if (event.target.matches(".best-movie")) {
+            console.log("View button has been clicked")
+            // console.log(event)
+            // console.log(event.path)
+            // console.log(event.path[0])
+            // console.log(event.path[0].dataset)
+            // console.log(event.path[0].dataset.id)
+            // printData(event.path[0].dataset.id)
+            printData(path[0].dataset.id)
+            return
+        }
         if (event.target.matches(".close")) {
             console.log("close button has been clicked")
             return
@@ -224,36 +250,34 @@ window.onload = function () {
             console.log("anywhere in body has been clicked")
             return
         };
-        if (event.target.matches("img")) {
+        if (event.target.matches(".img-carousel")) {
             console.log("image has been clicked")
-            // console.log("event.target")
-            console.log(event.target)
             event.preventDefault();
-            // console.log("dataId: " + event.path[1].dataset.id)
-            printData(event.path[1].dataset.id)
+            // printData(event.path[1].dataset.id)
+            printData(path[1].dataset.id)
             return
         };
 
 
     });
 
-    let clickBestMovie = document.getElementById('best-movie');
+    // let clickBestMovie = document.getElementById('best-movie');
     // console.log("clickBestMovie")
     // console.log(clickBestMovie)
 
     // When the user clicks the best movie link , open the modal 
-    if (clickBestMovie) {
-        clickBestMovie.addEventListener("click", printData, false);
-    }
+    // if (clickBestMovie) {
+    //     clickBestMovie.addEventListener("click", printData, false);
+    // }
 
     let firstCarousel = document.getElementById('carousel');
     // console.log("firstCarousel")
     // console.log(firstCarousel)
 
     // When the user clicks the best movie link , open the modal 
-    if (clickBestMovie) {
-        clickBestMovie.addEventListener("click", printData, false);
-    }
+    // if (clickBestMovie) {
+    //     clickBestMovie.addEventListener("click", printData, false);
+    // }
 
     async function printData(dataId) {
         // console.log("a.dataset.number: " + clickBestMovie.dataset.number)
