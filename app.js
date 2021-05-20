@@ -296,6 +296,13 @@ window.onload = function () {
         let img = createNode('img');
         let divDescription = createNode('div');
 
+        // new
+        let divImgModal = document.getElementById('div-img-modal')
+        let cardRight = document.getElementById('card-right')
+        console.log(divImgModal)
+        console.log(cardRight)
+        // *****
+
         h1.id = "title-modal"
         img.id = "img-modal"
         divDescription.id = "description-modal"
@@ -307,9 +314,15 @@ window.onload = function () {
         var modalContent = document.getElementById("modal-content");
         // console.log(modalContent)
 
-        append(modalContent, h1)
-        append(modalContent, img);
-        append(modalContent, divDescription);
+        append(cardRight, h1)
+        append(cardRight, divDescription)
+        // append(divDescription, h1)
+
+        append(divImgModal, img)
+        append(modalContent, divImgModal);
+
+        // append(modalContent, img);
+        append(modalContent, cardRight);
     }
     // *********************
 
