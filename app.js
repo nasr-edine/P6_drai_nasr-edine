@@ -225,12 +225,6 @@ window.onload = function () {
         console.log(event.composedPath())
         if (event.target.matches(".best-movie")) {
             console.log("View button has been clicked")
-            // console.log(event)
-            // console.log(event.path)
-            // console.log(event.path[0])
-            // console.log(event.path[0].dataset)
-            // console.log(event.path[0].dataset.id)
-            // printData(event.path[0].dataset.id)
             printData(path[0].dataset.id)
             return
         }

@@ -1,13 +1,42 @@
+::-webkit-scrollbar {
+    -webkit-appearance: none;
+}
+
+::-webkit-scrollbar:vertical {
+    width: 11px;
+}
+
+::-webkit-scrollbar:horizontal {
+    height: 0;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 8px;
+    border: 2px solid rgb(216, 216, 216);
+    /* should match background, can't be transparent */
+    background-color: black;
+}
+
+
 body {
     /* overflow: hidden; */
+    /* overflow-x: scroll;
+    overflow-y: hidden; */
     overflow-x: hidden;
+    overflow-y: scroll;
+    /* overflow: scroll; */
+    /* Show scrollbars */
+
     background-color: black;
     color: white;
 }
 
 h4 {
     text-align: center;
+    margin-top: 0;
 }
+
+.first-head {}
 
 #container2 {
     /* border: palegreen 10px solid; */
@@ -162,7 +191,7 @@ h4 {
 /* Position the image container (needed to position the left and right arrows) */
 .container {
     position: relative;
-    border: solid 5px black;
+    /* border: solid 5px black; */
     width: 50%;
     margin: auto;
 }
@@ -181,7 +210,7 @@ h4 {
     /* opacity: 0.3; */
 
     /* background-color: blueviolet; */
-    border: solid 5px black;
+    /* border: solid 5px black; */
     margin: auto;
 }
 
