@@ -313,10 +313,11 @@ window.onload = function () {
         divDescription.id = "description-modal"
 
         h1.textContent = movieModalDisplay.title
-        divDescription.textContent = movieModalDisplay.description
+        divDescription.textContent = 'description: ' + movieModalDisplay.description
 
         smallInfos.setAttribute('id', 'first-list')
-        genres.textContent = movieModalDisplay.genres
+        genresSplitted = movieModalDisplay.genres.join(' ');
+        genres.textContent = genresSplitted
         // genres.setAttribute("class", "details-infos-modal");
         genres.setAttribute("id", "genres");
         genres.setAttribute('id', 'item-first-list')
@@ -332,32 +333,42 @@ window.onload = function () {
 
         smallInfos2.setAttribute('id', 'second-list')
         countries.textContent = movieModalDisplay.countries
+        countriesSplitted = movieModalDisplay.countries.join(' ');
+        countries.textContent = countriesSplitted
         // countries.setAttribute("class", "details-infos-modal");
         countries.setAttribute("id", "countries");
 
-        rated.textContent = movieModalDisplay.rated
+
+        var str = movieModalDisplay.rated;
+        var n = str.startsWith("Not rated");
+        if (n) {
+            rated.textContent = 'rated: inconnu'
+        } else {
+            rated.textContent = 'rated: ' + movieModalDisplay.rated
+
+        }
         // rated.setAttribute("class", "details-infos-modal");
         rated.setAttribute("id", "rated");
 
-        imdbScore.textContent = movieModalDisplay.imdb_score
+        imdbScore.textContent = 'score: ' + movieModalDisplay.imdb_score
         // imdbScore.setAttribute("class", "details-infos-modal");
         imdbScore.setAttribute("id", "imdb_score");
 
         // worldwideGrossIncome.textContent = movieModalDisplay.worldwide_gross_income
         if (!movieModalDisplay.worldwide_gross_income) {
-            worldwideGrossIncome.textContent = 'inconnu'
+            worldwideGrossIncome.textContent = 'resultat BO: inconnu'
             console.log('inconnu')
         } else {
-
+            worldwideGrossIncome.textContent = 'resultat BO: ' + movieModalDisplay.worldwide_gross_income
         }
         // worldwideGrossIncome.setAttribute("class", "details-infos-modal");
         worldwideGrossIncome.setAttribute("id", "worldwide_gross_income");
 
-        directors.textContent = movieModalDisplay.directors
+        directors.textContent = 'directors: ' + movieModalDisplay.directors
         directors.setAttribute("class", "details-infos-modal");
         directors.setAttribute("id", "directors");
 
-        actors.textContent = movieModalDisplay.actors
+        actors.textContent = 'actors: ' + movieModalDisplay.actors
         actors.setAttribute("class", "details-infos-modal");
         actors.setAttribute("id", "actors");
 
