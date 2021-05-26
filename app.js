@@ -41,17 +41,17 @@ async function printBestMovie(bestMovie, description) {
     // div_title.innerHTML = bestMovie.title
     divTitle.innerHTML = bestMovie.title
     img.src = bestMovie.image_url;
-    //console.log(img)
-    //console.log(img.src)
+    ////console.log(img)
+    ////console.log(img.src)
     divDescription.innerHTML = description
 
     // button.innerHTML = 'Play'
     // append(div_best_movie, h1)
-    //console.log(divContainerImg)
+    ////console.log(divContainerImg)
 
     // append(divContainerImg, div_title);
-    //console.log(divContainerImg)
-    // //console.log(img)
+    ////console.log(divContainerImg)
+    // ////console.log(img)
     append(divImageBestMovie, img)
     // append(div_best_movie, a);
     // append(divContainerImg, divDescription);
@@ -59,7 +59,7 @@ async function printBestMovie(bestMovie, description) {
 }
 
 async function printBestMoviesList(moviesList, container) {
-    // //console.log(container)
+    // ////console.log(container)
     const videos = document.getElementById(container);
     // let h1 = createNode('h1')
     // h1.innerHTML = "Meilleur film"
@@ -69,7 +69,7 @@ async function printBestMoviesList(moviesList, container) {
         detailledInfosUrl = movie.url
         const detailledInfos = await fetch(detailledInfosUrl)
             .then(response => response.json())
-        // //console.log(detailledInfos.description);
+        // ////console.log(detailledInfos.description);
 
 
         let a = createNode('a');
@@ -102,12 +102,12 @@ function error_function(error) {
 async function getBestMovie(url) {
     const bestMovie = await fetch(url)
         .then(response => response.json())
-    // //console.log(bestMovie.results);
+    // ////console.log(bestMovie.results);
 
     detailledInfosUrl = bestMovie.results[0].url
     const detailledInfos = await fetch(detailledInfosUrl)
         .then(response => response.json())
-    // //console.log(detailledInfos.description);
+    // ////console.log(detailledInfos.description);
 
     printBestMovie(bestMovie.results[0], detailledInfos.description)
 
@@ -116,15 +116,15 @@ async function getBestMovie(url) {
 async function getBestMoviesList(container, url) {
     const bestMovies = await fetch(url)
         .then(response => response.json())
-    // //console.log(bestMovies.results.length);
+    // ////console.log(bestMovies.results.length);
 
     const bestMoviesNext = await fetch(bestMovies.next)
         .then(response => response.json());
-    // //console.log(bestMoviesNext.results.length);
+    // ////console.log(bestMoviesNext.results.length);
     let fullList = bestMovies.results.concat(bestMoviesNext.results);
-    // //console.log(fullList.length);
+    // ////console.log(fullList.length);
     firstList = fullList.slice(1, 8)
-    // //console.log(firstList)
+    // ////console.log(firstList)
     printBestMoviesList(firstList, container)
 
 }
@@ -189,11 +189,11 @@ window.onload = function () {
     // *********************
     // Get the modal
     var modal = document.getElementById("myModal");
-    // //console.log("modal: " + modal)
+    // ////console.log("modal: " + modal)
 
     // Get the <span> element that closes the modal
     var span = document.getElementsByClassName("close")[0];
-    // //console.log("span: " + span)
+    // ////console.log("span: " + span)
 
     function removeModal() {
         modal.style.display = "none";
@@ -210,13 +210,13 @@ window.onload = function () {
         descriptionModal.remove();
         // Removing all items of an ul element
         while (smallInfos.firstChild) {
-            console.log(smallInfos.firstChild)
+            //console.log(smallInfos.firstChild)
             smallInfos.removeChild(smallInfos.firstChild);
         }
         smallInfos.remove();
         // Removing all items of an ul element
         while (smallInfos2.firstChild) {
-            console.log(smallInfos2.firstChild)
+            //console.log(smallInfos2.firstChild)
             smallInfos2.removeChild(smallInfos2.firstChild);
         }
         smallInfos2.remove()
@@ -237,28 +237,28 @@ window.onload = function () {
     document.addEventListener("click", function (event) {
         var path = event.path || (event.composedPath && event.composedPath());
         if (event.target.matches(".best-movie")) {
-            //console.log("View button has been clicked")
+            ////console.log("View button has been clicked")
             printData(path[0].dataset.id)
             return
         }
         if (event.target.matches(".close")) {
-            //console.log("close button has been clicked")
+            ////console.log("close button has been clicked")
             return
         };
         if (event.target.matches(".modal-content")) {
-            //console.log("anywhere inside of the modal has been clicked")
+            ////console.log("anywhere inside of the modal has been clicked")
             return
         };
         if (event.target.matches(".modal")) {
-            //console.log("anywhere outside of the modal has been clicked")
+            ////console.log("anywhere outside of the modal has been clicked")
             return
         };
         if (event.target.matches("body")) {
-            //console.log("anywhere in body has been clicked")
+            ////console.log("anywhere in body has been clicked")
             return
         };
         if (event.target.matches(".img-carousel")) {
-            //console.log("image has been clicked")
+            ////console.log("image has been clicked")
             event.preventDefault();
             // printData(event.path[1].dataset.id)
             printData(path[1].dataset.id)
@@ -274,9 +274,9 @@ window.onload = function () {
     async function printData(dataId) {
 
 
-        //console.log("dataId: " + dataId)
+        ////console.log("dataId: " + dataId)
         urlMovieClicked = 'http://localhost:8000/api/v1/titles/' + dataId
-        //console.log("urlMovieClicked: " + urlMovieClicked)
+        ////console.log("urlMovieClicked: " + urlMovieClicked)
 
         const movieModalDisplay = await fetch(urlMovieClicked)
             .then(response => response.json())
@@ -304,8 +304,8 @@ window.onload = function () {
         // new
         let divImgModal = document.getElementById('div-img-modal')
         let cardRight = document.getElementById('card-right')
-        //console.log(divImgModal)
-        //console.log(cardRight)
+        ////console.log(divImgModal)
+        ////console.log(cardRight)
         // *****
 
         h1.id = "title-modal"
@@ -357,7 +357,7 @@ window.onload = function () {
         // worldwideGrossIncome.textContent = movieModalDisplay.worldwide_gross_income
         if (!movieModalDisplay.worldwide_gross_income) {
             worldwideGrossIncome.textContent = 'resultat BO: inconnu'
-            console.log('inconnu')
+            //console.log('inconnu')
         } else {
             worldwideGrossIncome.textContent = 'resultat BO: ' + movieModalDisplay.worldwide_gross_income
         }
@@ -374,21 +374,21 @@ window.onload = function () {
 
         img.src = movieModalDisplay.image_url;
 
-        console.log(movieModalDisplay.genres)
-        console.log(movieModalDisplay.date_published)
-        console.log(movieModalDisplay.duration)
-        console.log(movieModalDisplay.countries)
+        //console.log(movieModalDisplay.genres)
+        //console.log(movieModalDisplay.date_published)
+        //console.log(movieModalDisplay.duration)
+        //console.log(movieModalDisplay.countries)
 
-        console.log(movieModalDisplay.rated)
-        console.log(movieModalDisplay.imdb_score)
-        console.log(movieModalDisplay.worldwide_gross_income)
+        //console.log(movieModalDisplay.rated)
+        //console.log(movieModalDisplay.imdb_score)
+        //console.log(movieModalDisplay.worldwide_gross_income)
 
-        console.log(movieModalDisplay.directors)
-        console.log(movieModalDisplay.actors)
+        //console.log(movieModalDisplay.directors)
+        //console.log(movieModalDisplay.actors)
 
 
         var modalContent = document.getElementById("modal-content");
-        // //console.log(modalContent)
+        // ////console.log(modalContent)
 
         append(cardRight, h1)
         append(cardRight, divDescription)
