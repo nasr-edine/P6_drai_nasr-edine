@@ -6,45 +6,49 @@ Développez une interface utilisateur pour une application web Python
 
 Clone repository using:
 ```bash
-$ git clone https://github.com/nasr-edine/P6_drai_nasr-edine.git
+git clone https://github.com/nasr-edine/P6_drai_nasr-edine.git
 ```
 Move to the P6_drai_nasr-edine root folder with:
 ```bash
-$ cd P6_drai_nasr-edine
+cd P6_drai_nasr-edine
 ```
 Clone API repository in root project folder with:
 ```bash
-$ git clone https://github.com/OpenClassrooms-Student-Center/OCMovies-API-EN-FR.git
+git clone https://github.com/OpenClassrooms-Student-Center/OCMovies-API-EN-FR.git
 ```
 
 Installing pipenv:
 ```bash
-$ pip install pipenv
+pip install pipenv
 ```
 
 Move to the ocmovies-api root folder with:
 ```bash
-$ cd ocmovies-api-en
+cd ocmovies-api-en
 ```
 
 Install project dependencies with pipenv install:
 ```bash
-$ pipenv install
+pipenv install
 ```
 Create and populate project database with: 
 ```bash
-$ pipenv run python manage.py create_db
+pipenv run python manage.py create_db
 ```
 ## Usage
 
 Run the server with:
 ```bash
-$ pipenv run python manage.py runserver
+pipenv run python manage.py runserver
 ```
-open index.html with your browser:
+open index.html with your favorite browser:
 ```bash
-$ open -a "Google Chrome" index.html
+open -a "Google Chrome" index.html
+open -a "firefox" index.html
+open -a "safari" index.html
 ```
+
+
 ### Folder Structure with db.json created
 
     .
